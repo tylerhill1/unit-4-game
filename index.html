@@ -32,10 +32,10 @@
           <h3 class="card-header">Crystals</h3>
 
           <div class="card-body">
-            <button id="button-1" class="btn btn-primary number" value="1"><span>1</span></button>
-            <button id="button-2" class="btn btn-primary number" value="2"><span>2</span></button>
-            <button id="button-3" class="btn btn-primary number" value="3"><span>3</span></button>
-            <button id="button-plus" class="btn btn-danger operator" value="plus"><span>+</span></button>
+            <button id="c1" class="btn btn-primary crystal" value="1"><span>c1</span></button>
+            <button id="c2" class="btn btn-primary crystal" value="2"><span>c2</span></button>
+            <button id="c3" class="btn btn-primary crystal" value="3"><span>c3</span></button>
+            <button id="c4" class="btn btn-danger crystal" value="4"><span>c4</span></button>
           </div>
         </div>
       </div>
@@ -61,56 +61,42 @@
 $(document).ready(function() {
 
 // Your code here...
-    var stuff = "";
-    var operator = "";
-    var array = [];
+    var wins = 0;
+    var losses = 0;
+    var goal = 0;
+    var tally = 0;
+    var c1 = 0;
+    var c2 = 0;
+    var c3 = 0;
+    var c4 = 0;
 
-    $(".number").on("click", function () {
-        var number = this.value;
-        stuff = stuff + number;
+    function newRound() {
+        tally = 0;
+        goal = randomnumber(19,120);
+        c1 = randomnumber(1,12);
+        c2 = randomnumber(1,12);
+        c3 = randomnumber(1,12);
+        c4 = randomnumber(1,12);
+    }
+
+    $(".crystal").on("click", function () {
+        var number = this.value; //this is the key is using jquery to switch this value
+        tally = tally + number;
          console.log(stuff);
+
+        if(tally === goal) {
+            wins++;
+            newRound();
+        }
+        
+        if(tally > goal) {
+            losses++;
+            newRound();
+        }
     })
 
-    $(".operator").on("click", function () {
-        operator = this.value;
-        array.push(parseInt(stuff));
-
-        stuff = "";
-         console.log(operator);
-    })
-
-    $(".equal").on("click", function () {
-        if (operator == "plus") {
-            $("#result").text(array[0] + parseInt(stuff));
-            console.log(array[0] + parseInt(stuff)); 
-        }
-        if (operator == "minus") {
-            $("#result").text(array[0] - parseInt(stuff));
-            console.log(array[0] - parseInt(stuff)); 
-        }
-        if (operator == "times") {
-            $("#result").text(array[0] * parseInt(stuff));
-            console.log(array[0] * parseInt(stuff)); 
-        }
-        if (operator == "divide") {
-            $("#result").text(array[0] / parseInt(stuff));
-            console.log(array[0] / parseInt(stuff)); 
-        }
-        if (operator == "power") {
-            $("#result").text(Math.pow(array[0], parseInt(stuff)));
-            console.log(Math.pow(array[0], parseInt(stuff))); 
-        }
-     })
-
-     $(".clear").on("click", function () {
-        stuff = "";
-        operator = "";
-        array = [];
-        $("#result").text("");
-        console.log("cleared!");
 
 
-    })
 
 });
 
