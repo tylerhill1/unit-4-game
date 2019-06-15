@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystal City Game</title>
+
+    <!-- Added link to the jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+
+    <!-- Added a link to our external stylesheet-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<!-- Jumbotron for Title -->
+<div class="jumbotron">
+    <h1 class="text-center">Crystal City Game</h1>
+    <h3 class="text-center">Dominate this game using the power of jQuery!</h3>
+</div>
+
+<div class="container">
+
+    <div class="row">
+
+      <!-- Calculator Card -->
+      <div class="col-lg-4">
+        <div class="card">
+          <h3 class="card-header">Crystals</h3>
+
+          <div class="card-body">
+            <button id="button-1" class="btn btn-primary number" value="1"><span>1</span></button>
+            <button id="button-2" class="btn btn-primary number" value="2"><span>2</span></button>
+            <button id="button-3" class="btn btn-primary number" value="3"><span>3</span></button>
+            <button id="button-plus" class="btn btn-danger operator" value="plus"><span>+</span></button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Result Card -->
+      <div class="col-lg-6">
+        <div class="card">
+          <h3 class="card-header">Result</h3>
+          <div class="card-body">
+            <h1 id="first-number"></h1>
+            <h1 id="operator"></h1>
+            <h1 id="second-number"></h1>
+            <hr>
+            <h1 id="result"></h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script type="text/javascript">
+
+$(document).ready(function() {
+
+// Your code here...
+    var stuff = "";
+    var operator = "";
+    var array = [];
+
+    $(".number").on("click", function () {
+        var number = this.value;
+        stuff = stuff + number;
+         console.log(stuff);
+    })
+
+    $(".operator").on("click", function () {
+        operator = this.value;
+        array.push(parseInt(stuff));
+
+        stuff = "";
+         console.log(operator);
+    })
+
+    $(".equal").on("click", function () {
+        if (operator == "plus") {
+            $("#result").text(array[0] + parseInt(stuff));
+            console.log(array[0] + parseInt(stuff)); 
+        }
+        if (operator == "minus") {
+            $("#result").text(array[0] - parseInt(stuff));
+            console.log(array[0] - parseInt(stuff)); 
+        }
+        if (operator == "times") {
+            $("#result").text(array[0] * parseInt(stuff));
+            console.log(array[0] * parseInt(stuff)); 
+        }
+        if (operator == "divide") {
+            $("#result").text(array[0] / parseInt(stuff));
+            console.log(array[0] / parseInt(stuff)); 
+        }
+        if (operator == "power") {
+            $("#result").text(Math.pow(array[0], parseInt(stuff)));
+            console.log(Math.pow(array[0], parseInt(stuff))); 
+        }
+     })
+
+     $(".clear").on("click", function () {
+        stuff = "";
+        operator = "";
+        array = [];
+        $("#result").text("");
+        console.log("cleared!");
+
+
+    })
+
+});
+
+</script>
+
+</body>
+</html>
