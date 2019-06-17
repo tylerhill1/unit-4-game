@@ -1,0 +1,35 @@
+#first {
+    height: 100px;
+    width: 200px;
+    background-color: orange;
+    color: white;
+    vertical-align: auto;
+    margin: 10px;
+    padding-top: 20px;
+}
+#second {
+    height: 400px;
+    width: 200px;
+    background-color: tan;
+    color: green;
+    margin: 10px;
+    padding-top: 20px;
+}
+#third {
+    height: 100px;
+    width: 200px;
+    background-color: rgb(85, 192, 85);
+    color: rgb(247, 247, 115);
+    vertical-align: auto;
+    margin: 10px;
+    padding-top: 20px;
+}
+#fourth {
+    height: 100px;
+    width: 120px;
+    background-color: lightblue;
+    color: white;
+    vertical-align: auto;
+    margin: 10px;
+    padding-top: 20px;
+}
