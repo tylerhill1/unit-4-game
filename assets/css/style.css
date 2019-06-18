@@ -6,6 +6,7 @@
     vertical-align: auto;
     margin: 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 #second {
     height: 375px;
@@ -14,6 +15,7 @@
     color: green;
     margin: 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 #third {
     height: 100px;
@@ -23,6 +25,7 @@
     vertical-align: auto;
     margin: 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 #fourth {
     height: 100px;
@@ -32,6 +35,7 @@
     vertical-align: auto;
     margin: 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 .crystal {
     height: 170px;
@@ -40,6 +44,7 @@
     vertical-align: auto;
     border: none;
     margin: 5px;
+    overflow: auto;
 }
 #fifth {
     height: 60px;
@@ -49,6 +54,7 @@
     vertical-align: auto;
     margin: 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 #sixth {
     height: 100px;
@@ -58,5 +64,6 @@
     vertical-align: auto;
     margin: 0px 10px 10px 10px;
     padding-top: 20px;
+    overflow: auto;
 }
 
