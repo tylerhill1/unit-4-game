@@ -26,7 +26,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-8" id="second">
         <div class="container">
@@ -43,7 +42,6 @@
         </div>
     </div>
 </div>
-
 <div class="row">
     <div class="col-lg-4" id="third">
         <div class="container">
@@ -57,51 +55,34 @@
         </div>
     </div>
 </div>
-    <div class="row">
-
-
-
-      <!-- Calculator Card -->
-      <div class="col-lg-4">
-        <div class="card">
-          <h3 class="card-header">Crystals</h3>
-
-          <div class="card-body">
-            <button id="c1" class="btn btn-primary crystal" value="1"><span>c1</span></button>
-            <button id="c2" class="btn btn-primary crystal" value="2"><span>c2</span></button>
-            <button id="c3" class="btn btn-primary crystal" value="3"><span>c3</span></button>
-            <button id="c4" class="btn btn-primary crystal" value="4"><span>c4</span></button>
-          </div>
-        </div>
-        <!-- <div class="card">
-                <h3 class="card-header">Wins</h3>
-                <div class="card-body">
-                    <h1 id="wins"></h1>
+<div class="row">
+        <button class="col-lg-2 crystal" id="c1" value="1">
+            <img src="assets/images/crystals.png"/>
+        </button>
+        <button class="col-lg-2 crystal" id="c2" value="1">
+            <img src="assets/images/crystals2.png"/>
+        </button>
+        <button class="col-lg-2 crystal" id="c3" value="1">
+            <img src="assets/images/crystals3.png"/>
+        </button>
+        <button class="col-lg-2 crystal" id="c4" value="1">
+            <img src="assets/images/crystals4.png"/>
+        </button>
+</div>
+<div class="row">
+            <div class="col-lg-4" id="fifth">
+                <div class="container">
+                    <h6 id="intro">Your current score is: </h6>
                 </div>
-        </div>
-        <div class="card">
-                <h3 class="card-header">Losses</h3>
-                <div class="card-body">
-                    <h1 id="losses"></h1>
-                </div> -->
-        </div>
-      </div>
-
-      <!-- Result Card -->
-      <div class="col-lg-6">
-        <div class="card">
-            <h3 class="card-header">Goal</h3>
-            <div class="card-body">
-                <h1 id="goal"></h1>
             </div>
-          <h3 class="card-header">Current Score</h3>
-          <div class="card-body">
-            <h1 id="result"></h1>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+</div>
+<div class="row">
+            <div class="col-lg-4" id="sixth">
+                <div class="container">
+                    <h2 id="result"></h4>
+                </div>
+            </div>
+</div>
 
 </div>
 
@@ -121,12 +102,13 @@ $(document).ready(function() {
     function newRound() {
         tally = 0;
         $("#result").text(tally);
-
+    
         goal = Math.floor(Math.random() * (120 - 19)) + 19; 
         $("#goal").text(goal);
-        
+
         c1 = Math.floor(Math.random() * (12 - 1)) + 1; 
         $("#c1").attr("value",c1);
+
 
         c2 = Math.floor(Math.random() * (12 - 1)) + 1; 
         $("#c2").attr("value",c2);
@@ -136,11 +118,19 @@ $(document).ready(function() {
         
         c4 = Math.floor(Math.random() * (12 - 1)) + 1; 
         $("#c4").attr("value",c4);
+
+        console.log(tally);
+        console.log(goal);
+        console.log(c1);
+        console.log(c2);
+        console.log(c3);
+        console.log(c4);
     }
     newRound();
 
     $(".crystal").on("click", function () {
-        var number = this.value;
+        var number = parseInt(this.value);
+        console.log("number: " + number);
         tally = parseInt(tally) + parseInt(number);
         $("#result").text(tally);
 
